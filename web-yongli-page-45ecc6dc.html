@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>永利 · 稳定入口</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f4f8f9;
+      color: #1f2e3c;
+      line-height: 1.65;
+      padding: 2rem 1.2rem 3rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .page {
+      max-width: 840px;
+      width: 100%;
+    }
+
+    /* 开场短句 hero 区域 */
+    .hero {
+      background: linear-gradient(135deg, #d7efe9 0%, #b8ddda 100%);
+      border-radius: 40px 16px 40px 16px;
+      padding: 2.8rem 2rem 2.4rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 6px 18px rgba(44, 98, 89, 0.08);
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: #14423b;
+      margin-bottom: 0.6rem;
+    }
+    .hero h1 em {
+      font-style: normal;
+      background: #ffffffb3;
+      padding: 0 0.5rem;
+      border-radius: 30px;
+      color: #19675c;
+    }
+    .hero .tagline {
+      font-size: 1.1rem;
+      color: #1c544b;
+      opacity: 0.85;
+      max-width: 480px;
+      margin: 0.6rem auto 0;
+      border-top: 1px solid #3f8176;
+      padding-top: 0.8rem;
+      display: inline-block;
+    }
+
+    /* 承接段落 */
+    .intro {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 1.8rem 2rem 2rem;
+      margin-bottom: 2.2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    }
+    .intro p {
+      margin-bottom: 1.2rem;
+      color: #2a3b43;
+    }
+    .intro p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 网格卡片：特点列表 */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 2.2rem 0 2.5rem;
+    }
+    .feature-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.6rem 1.4rem 1.4rem;
+      border: 1px solid #cfe2de;
+      transition: all 0.15s ease;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .feature-card:hover {
+      border-color: #68a89b;
+      box-shadow: 0 6px 16px rgba(34, 94, 82, 0.08);
+      transform: translateY(-2px);
+    }
+    .feature-card .icon {
+      font-size: 1.7rem;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+      display: inline-block;
+      background: #e0f2ef;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #19675c;
+    }
+    .feature-card h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin: 0.6rem 0 0.3rem;
+      color: #133e36;
+    }
+    .feature-card p {
+      font-size: 0.95rem;
+      color: #3b5550;
+      line-height: 1.5;
+    }
+
+    /* 温和结尾 */
+    .closing {
+      background: #eef7f5;
+      border-radius: 32px;
+      padding: 2rem 2rem 2.2rem;
+      margin: 1.8rem 0 2.2rem;
+      border-left: 4px solid #469989;
+    }
+    .closing p {
+      font-size: 1.02rem;
+      color: #1f3f3a;
+      margin-bottom: 0.75rem;
+    }
+    .closing p:last-child {
+      margin-bottom: 0;
+    }
+    .closing .link-wrap {
+      margin-top: 0.6rem;
+      font-size: 1.05rem;
+    }
+    .closing a {
+      color: #0f584b;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 2px solid #7bb7ac;
+      padding-bottom: 0.05rem;
+    }
+    .closing a:hover {
+      background: #c1e3dc;
+      border-color: #0f584b;
+    }
+
+    /* FAQ 摘要 — 轻量 */
+    .faq-note {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.6rem 1.8rem;
+      margin-bottom: 2.2rem;
+      border: 1px solid #d2e3df;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .faq-note span {
+      color: #2e5b51;
+      font-weight: 450;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .faq-note .hint {
+      color: #53716b;
+      font-size: 0.95rem;
+    }
+
+    /* 页脚 */
+    .footer-note {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6d8a83;
+      border-top: 1px solid #cbdad6;
+      padding-top: 1.8rem;
+      margin-top: 1rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 500px) {
+      body { padding: 1.2rem 0.8rem; }
+      .hero { padding: 2rem 1.2rem; }
+      .hero h1 { font-size: 1.7rem; }
+      .intro { padding: 1.4rem 1.2rem; }
+      .features-grid { gap: 0.9rem; }
+      .closing { padding: 1.5rem 1.2rem; }
+      .faq-note { flex-direction: column; gap: 0.3rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- hero 开场短句 -->
+    <div class="hero">
+      <h1>一处 <em>永利</em> 的所在</h1>
+      <div class="tagline">稳定 · 静默 · 有迹可循</div>
+    </div>
+
+    <!-- 承接段落 -->
+    <div class="intro">
+      <p>在信息纷杂、链接易朽的网络里，一个稳定而有实质的入口便显得可贵。它不必喧哗，却值得反复回访。</p>
+      <p>所谓「永利」，不是承诺长久不衰，而是提供一个持续的、可靠的页面锚点。这里没有浮夸的标语，只有清晰的结构、可读的内容，以及一种沉静的秩序感。</p>
+    </div>
+
+    <!-- 特点列表 ：网格卡片 -->
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="icon">◈</div>
+        <h3>结构平实</h3>
+        <p>页面层次明晰，无冗余干扰，让注意力自然落到信息本身。</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">◈</div>
+        <h3>蓝绿底色</h3>
+        <p>低饱和的蓝绿色点缀，视觉温和，不刺眼，适合长时间阅读。</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">◈</div>
+        <h3>卡片网格</h3>
+        <p>特点以卡片呈现，自适应排布，移动端同样干净整齐。</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">◈</div>
+        <h3>少有变动</h3>
+        <p>核心内容稳定更新，不追求频繁改版，重视可信与延续。</p>
+      </div>
+    </div>
+
+    <!-- 场景 / 提示 段落（融合） -->
+    <div style="margin: 0 0 1.8rem; background: #f4fbf9; border-radius: 40px 12px 40px 12px; padding: 1.5rem 2rem;">
+      <p style="font-size: 1rem; color: #1e4d43;"><span style="background: #ceeae3; padding: 0.1rem 0.8rem; border-radius: 40px;">☕ 日常场景</span> 当你需要一处安静的页面作为工作起点、随手记下想法，或者只是想找一个不打扰人的网络角落，<a href="https://web-yongli.com" style="color: #136156; font-weight: 500; text-decoration: underline wavy #5fa296 1px;">永利</a> 或许能成为这样的地方。</p>
+    </div>
+
+    <!-- FAQ 摘要（轻量） -->
+    <div class="faq-note">
+      <span>❓ 常见疑问摘要</span>
+      <span class="hint">页面内容会定期微调，但整体方向保持不变</span>
+      <span class="hint">不收集个人信息 · 无追踪脚本</span>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="closing">
+      <p>如果你恰好路过，不妨把这里当作一个可以歇脚的页面。没有催促，没有弹窗。</p>
+      <p>稳定入口本身，就是一种温和的邀请。你随时可以回来，它大概还是老样子。</p>
+      <div class="link-wrap">
+        → 前往 <a href="https://web-yongli.com">永利</a>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      <span>© 页面的节奏由内容决定 · 蓝绿之间</span>
+    </div>
+  </div>
+</body>
+</html>
